@@ -38,11 +38,12 @@ jobs:
 
       - name: Build AmneziaWG
         run: |
-          make FORCE=1 package/luci-app-amneziawg/{clean,download,prepare}
-          make FORCE=1 package/luci-app-amneziawg/compile V=s
+          export FORCE=1
+          make package/luci-app-amneziawg/{clean,download,prepare}
+          make package/luci-app-amneziawg/compile V=s
 
-          make FORCE=1 V=s package/amneziawg-tools/{clean,download,prepare}
-          make FORCE=1 V=s package/amneziawg-tools/compile
+          make V=s package/amneziawg-tools/{clean,download,prepare}
+          make V=s package/amneziawg-tools/compile
 
       - name: Prepare artifacts
         run: |
