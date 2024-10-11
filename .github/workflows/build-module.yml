@@ -38,12 +38,11 @@ jobs:
 
       - name: Build AmneziaWG
         run: |
-          sudo apt-get install python3 python3-distutils-extra
-          make package/luci-app-amneziawg/{clean,download,prepare}
-          make package/luci-app-amneziawg/compile V=s
+          make FORCE=1 package/luci-app-amneziawg/{clean,download,prepare}
+          make FORCE=1 package/luci-app-amneziawg/compile V=s
 
-          make V=s package/amneziawg-tools/{clean,download,prepare}
-          make V=s package/amneziawg-tools/compile
+          make FORCE=1 V=s package/amneziawg-tools/{clean,download,prepare}
+          make FORCE=1 V=s package/amneziawg-tools/compile
 
       - name: Prepare artifacts
         run: |
